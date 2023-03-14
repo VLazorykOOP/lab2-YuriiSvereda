@@ -1,4 +1,5 @@
 ﻿#include <iostream>
+#include <bitset>
 using namespace std;
 #include "Tasks.h"
 #include "Examples.h"
@@ -13,6 +14,7 @@ void MenuTask()
     cout << "    6.  Exit \n";
 }
 void task1() {
+    cout << " Calculation of expressions using bitwise operations  \n";
     unsigned int a, b, c;
     int x, y;
     cout << "Input a: ";
@@ -28,7 +30,6 @@ void task1() {
 
     // Обчислення виразів з використанням побітових операцій
     // Calculation of expressions using bitwise operations 
-    cout << " Calculation of expressions using bitwise operations  \n";
 }
 
 void task2()
@@ -36,6 +37,77 @@ void task2()
     // Шифрування даних з використання побітових операцій 
     // Data encryption using bitwise operations
     cout << " Data encryption using bitwise operations  \n";
+	char text_input[16][4], text[16][16];
+	int i, j;
+	unsigned char c;
+	unsigned short r, t, w;
+	int result[16][16];
+	bool b;
+
+
+	//input of text
+	for (i = 0; i < 16; i++) {
+		cin.getline(text_input[i], 4);
+	}
+	//coping text in another variable to filling in with spaces
+	for (i = 0; i < 16; i++) {
+		for (j = 0; j < 16; j++) {
+			text[i][j] = text_input[i][j];
+		}
+
+	}
+
+
+	// filling in with spaces
+	for (i = 0; i < 16; i++) {
+		for (j = 0; j < 16; j++) {
+			if (text[i][j] == NULL) {
+				text[i][j] = ' ';
+			}
+		}
+	}
+
+
+
+	//encryption of the text
+	for (i = 0; i < 16; i++) {
+		for (j = 0; j < 16; j++) {
+			w = text[i][j];
+			r = i;
+			w = j << 4;
+			r |= w;    //number of the row
+			w = text[i][j];
+			r |= w << 4; //yung ASCII
+			t = 1;
+			b = false;
+			for (unsigned short z = 0; z < 6; z++) // обчислення біта парності перших 2 полів
+			{
+				if (r & t) {
+					b = !b;
+				}
+				t <<= 1;
+			}
+			r <<= 1;
+			r |= b;
+
+			r |= w >> 9; //old ASCII
+
+			w = j << 3;
+			r |= w;
+			for (unsigned short z = 0; z < 8; z++) // обчислення біта парності поереднього поля
+			{
+				if (r & t) {
+					b = !b;
+				}
+				t <<= 1;
+			}
+			r <<= 1;//зсув на 1 позицію для парності попереднього поля
+			r |= b; // додавання парності попереднього поля
+			result[i][j] = r; //зашифрований символ додається у масив
+			cout << std::bitset<16>(result[i][j]) << " ";
+		}cout << endl;
+
+	}
 
 }
 

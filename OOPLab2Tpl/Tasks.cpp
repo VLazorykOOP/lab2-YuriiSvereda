@@ -80,7 +80,7 @@ void task2()
 			r |= w << 4; //yung ASCII
 			t = 1;
 			b = false;
-			for (unsigned short z = 0; z < 6; z++) // обчислення біта парності перших 2 полів
+			for (unsigned short z = 0; z < 6; z++) // calculating the parity bit of the first 2 fields
 			{
 				if (r & t) {
 					b = !b;
@@ -94,16 +94,16 @@ void task2()
 
 			w = j << 3;
 			r |= w;
-			for (unsigned short z = 0; z < 8; z++) // обчислення біта парності поереднього поля
+			for (unsigned short z = 0; z < 8; z++) // calculating the parity bit of the average field
 			{
 				if (r & t) {
 					b = !b;
 				}
 				t <<= 1;
 			}
-			r <<= 1;//зсув на 1 позицію для парності попереднього поля
-			r |= b; // додавання парності попереднього поля
-			result[i][j] = r; //зашифрований символ додається у масив
+			r <<= 1;//shift by 1 position for parity of the previous field
+			r |= b; // adding parity to the previous field
+			result[i][j] = r; //the encrypted character is added to the array
 			cout << std::bitset<16>(result[i][j]) << " ";
 		}cout << endl;
 
@@ -116,6 +116,7 @@ void task3()
     // Шифрування даних з використання стуктур з бітовими полями 
     // Data encryption using structures with bit fields
     cout << "  Data encryption using structures with bit fields \n";
+	cout << "sorry I didn't undertand this task";
 }
 
 

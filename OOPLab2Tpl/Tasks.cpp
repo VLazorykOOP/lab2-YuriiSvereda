@@ -13,6 +13,19 @@ void MenuTask()
     cout << "    6.  Exit \n";
 }
 void task1() {
+    unsigned int a, b, c;
+    int x, y;
+    cout << "Input a: ";
+    cin >> a;
+    cout << "Input b: ";
+    cin >> b;
+    cout << "Input c: ";
+    cin >> c;
+    x = ((((a << 4) + (a << 1)) + ((b << 8) + (b << 6) + (b << 1))) >> 9) - ((b << 7) - (b << 2) - (b << 1)) + ((c << 7) - (c << 2) - c);
+    y = (18 * a + 312 * b) / 512 - b * 122 + c * 123;
+
+    cout << "Result: " << x << endl << "Audit: " << y << endl;
+
     // Обчислення виразів з використанням побітових операцій
     // Calculation of expressions using bitwise operations 
     cout << " Calculation of expressions using bitwise operations  \n";

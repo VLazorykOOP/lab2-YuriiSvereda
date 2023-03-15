@@ -124,7 +124,29 @@ void task4()
 {   // Задача із використання побітових операцій
     // The problem of using bitwise operations
     cout << " Data encryption using structures with bit fields \n";
+	using namespace std;
+    #include <iostream>
 
+		unsigned int a, b, a1 = 0, b1;
+		cout << "input a value: ";
+		cin >> a;
+		cout << "input b value: ";
+		cin >> b;
+		b1 = b;
+		while (b1 >= 1) {
+			cout << endl << a1 << " " << b1 << endl;
+
+			if (b1 == 1) {
+				a1 += a;
+				b1--;
+			}
+			else {
+				a1 += a << 1;
+				b1 -= 2;
+			}
+			cout << "Rerult: " << a1 << endl;
+			cout << "Audit: " << a * b << endl;
+		}
 }
 
 
